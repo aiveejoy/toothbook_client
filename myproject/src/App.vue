@@ -1,25 +1,53 @@
 <template>
-  <div id="app">
-    <my-header></my-header>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          :src="require('@/assets/totii.png')"
+          transition="scale-transition"
+          width="40"
+        />
+      </div>
+
+      <v-spacer></v-spacer>
+      <router-link
+        to="/about"
+      >
+      <v-btn
+        target="_blank"
+        text
+      >
+        <span class="mr-2">About</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+      </router-link>
+    </v-app-bar>
+
+    <v-content>
+      <HelloWorld/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import Header1 from '@/components/Header'
-export default {
-  components: {
-    'my-header': Header1
-  }
-}
-</script>
+import HelloWorld from './components/HelloWorld';
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-</style>
+export default {
+  name: 'App',
+
+  components: {
+    HelloWorld,
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>
